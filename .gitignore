@@ -1,0 +1,10 @@
+.DS_Store
+config/database.yml
+config/repositories.yml
+coverage/*
+db/schema.rb
+db/*.sqlite3
+doc/app
+doc/diagrams
+log/*.log
+tmp/*
