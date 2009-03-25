@@ -28,3 +28,4 @@ config.action_mailer.delivery_method = :test
 # config.active_record.schema_format = :sql
 
 HOST = 'localhost'
+DO_NOT_REPLY = 'help@example.org'
