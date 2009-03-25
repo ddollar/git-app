@@ -5,6 +5,7 @@ Rails::Initializer.run do |config|
 
   config.time_zone = 'UTC'
 
-  config.gem 'thoughtbot-clearance', :version => '>= 0.5.4', :lib => 'clearance'
+  config.gem 'thoughtbot-clearance', :version => '>= 0.5.4',  :lib => 'clearance'
+  config.gem 'thoughtbot-shoulda',   :version => '>= 2.10.1', :lib => 'shoulda'
 
 end
