@@ -10,3 +10,4 @@ log/*.log
 tmp/*
 
 vendor/gems/nokogiri-*/ext/*
+vendor/gems/nokogiri-*/lib/nokogiri/native.bundle
