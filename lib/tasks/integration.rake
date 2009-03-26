@@ -8,7 +8,7 @@ spec_prereq = File.exist?(File.join(RAILS_ROOT, 'config', 'database.yml')) ? "db
 task :noop do
 end
 
-task :integration => %w{ environment:test gems:install gems:build configure:target db:test:purge db:migrate db:test:prepare integration:spec integration:rcov }
+task :integration => %w{ environment:test gems:install configure:target db:test:purge db:migrate db:test:prepare integration:spec integration:rcov }
 
 namespace :environment do
   task :test do
