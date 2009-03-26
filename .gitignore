@@ -8,3 +8,5 @@ doc/app
 doc/diagrams
 log/*.log
 tmp/*
+
+vendor/gems/nokogiri-*/ext/*
