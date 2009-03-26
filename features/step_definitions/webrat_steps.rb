@@ -91,11 +91,11 @@ When /^I attach the file at "([^\"]*)" to "([^\"]*)"$/ do |path, field|
 end
 
 Then /^I should see "([^\"]*)"$/ do |text|
-  response.should contain(text)
+  response.should contain(Regexp.new(text))
 end
 
 Then /^I should not see "([^\"]*)"$/ do |text|
-  response.should_not contain(text)
+  response.should_not contain(Regexp.new(text))
 end
 
 Then /^the "([^\"]*)" checkbox should be checked$/ do |label|

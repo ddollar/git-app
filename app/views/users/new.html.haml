@@ -1,0 +1,7 @@
+%h2 Sign Up
+
+- form_for @user do |form|
+
+  = render 'form', :object => form
+
+  = form.submit 'Sign up', :disable_with => 'Please wait...'
