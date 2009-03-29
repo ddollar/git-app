@@ -11,3 +11,5 @@ tmp/*
 
 vendor/gems/nokogiri-*/ext/*
 vendor/gems/nokogiri-*/lib/nokogiri/native.bundle
+
+public/stylesheets/*.css
