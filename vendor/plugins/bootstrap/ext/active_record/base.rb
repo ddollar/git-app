@@ -18,11 +18,7 @@ class ActiveRecord::Base
 
     raise "Keys matched more than one record" unless records.length < 2
 
-    require 'pp'
-    pp record
-
     if records.empty?
-      puts "CREATING"
       self.create!(record)
     else
       records.first.update_attributes!(record)

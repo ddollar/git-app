@@ -15,12 +15,13 @@
 keys = [ :email ]
 
 data = [
-  { 
-    :name                  => 'David Dollar',
+  {
+    :admin                 => true,
     :email                 => 'ddollar@peervoice.com', 
+    :name                  => 'David Dollar',
     :password              => 'test123', 
     :password_confirmation => 'test123',
-    :admin                 => true
+    :ssh_key               => 'test-ssh-key'
   }
 ]
 
