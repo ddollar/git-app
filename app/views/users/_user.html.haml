@@ -1,0 +1,6 @@
+%tr{ :class => cycle('odd', 'even') }
+
+  %td= user.name
+  %td= user.email
+  %td= user.admin
+  %td= link_to 'Edit', edit_user_path(user)

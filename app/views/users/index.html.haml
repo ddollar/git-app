@@ -1,0 +1,21 @@
+#repositories.grid
+
+  .header
+    %h3    Users
+    .new=  link_to 'Add New User', { :action => 'new' }
+
+  %table
+
+    %tr
+      %th Name
+      %th Email
+      %th Admin
+      %th
+
+    - if @users.empty?
+    
+      %tr
+        %td{ :colspan => 4 }
+          No users found.
+
+    = render @users
