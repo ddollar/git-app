@@ -1,3 +1,0 @@
-[submodule "vendor/plugins/tab_tab"]
-	path = vendor/plugins/tab_tab
-	url = git://github.com/jordi/tab_tab.git
