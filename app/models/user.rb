@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
 ## setup #####################################################################
 
   attr_accessor   :password                                          #:nodoc:#
-  attr_accessible :email, :password, :password_confirmation          #:nodoc:#
   before_save     :encrypt_password                                  #:nodoc:#
 
 ## associations ##############################################################
