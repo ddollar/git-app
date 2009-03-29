@@ -11,9 +11,14 @@ class ApplicationController < ActionController::Base
 
 ## authentication ############################################################
 
-  include Clearance::App::Controllers::ApplicationController
-
   filter_parameter_logging :password
+
+  def current_user
+    Rails.env.development? ? User.first : session[:user]
+  end
+
+  helper_method :current_user
+  private :current_user
 
 ## helpers ###################################################################
 

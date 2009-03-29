@@ -1,0 +1,14 @@
+- if current_user
+
+  .gravatar= gravatar_for_user current_user
+  .name=     user.name
+  
+- else
+
+  - form_for :session, :url => { :controller => 'sessions', :action => 'create' } do |form|
+
+    = form.label          :email
+    = form.text_field     :email, :size => 20
+    = form.label          :password
+    = form.password_field :password, :size => 20
+    = form.submit         'Sign In'

@@ -1,13 +1,22 @@
 !!! XML
 !!! Strict
-%head
+%html
 
-  %html
+%head
+  = stylesheet_link_tag 'application'
 
   %body
+    #container
 
-    %h1 GitApp
+      #header
+        %h1     GitApp
+        #login= render :partial => 'layouts/login'
 
-    = flash_messages
+      #navigation
+        = render :partial => 'layouts/navigation'
 
-    = yield
+      #flash
+        = flash_messages
+
+      #content
+        = yield

@@ -1,9 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
 
-  # clearance
-  map.resource  :session
-  map.resources :users, :has_one => [:password, :confirmation]
-  map.resources :passwords
+  map.resources :sessions, :only => [ :create, :destroy ]
+
+  map.resources :repositories
+  map.resources :pages
+  map.resources :users
 
   # default route
   map.root :controller => 'home'

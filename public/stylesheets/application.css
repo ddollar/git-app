@@ -1,0 +1,94 @@
+* {
+  font-family: Helvetica, Arial, sans; }
+
+body {
+  background: url('/images/background.png') repeat-y #666 center;
+  margin: 0; }
+
+#container {
+  width: 800px;
+  margin: auto;
+  background-color: #fff; }
+  #container #header {
+    background-color: #b3e3ee;
+    border-bottom: 1px #666 solid;
+    padding: 10px;
+    width: 780px;
+    display: inline-block; }
+    #container #header:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    * html #container #header {
+      height: 1px; }
+    #container #header h1 {
+      margin: 0;
+      margin-left: 4px;
+      float: left;
+      font-size: 2.0em; }
+    #container #header #login {
+      background-color: #93c3ce;
+      padding: 6px 14px;
+      border: 1px #53838e solid;
+      float: right; }
+      #container #header #login label {
+        float: left;
+        margin-top: 4px;
+        margin-right: 6px; }
+      #container #header #login input {
+        float: left; }
+      #container #header #login input#search_email,
+      #container #header #login input#search_password {
+        margin-right: 12px; }
+      #container #header #login input[type="text"],
+      #container #header #login input[type="password"] {
+        margin-right: 16px; }
+  #container #navigation {
+    display: inline-block;
+    background-color: #eee;
+    border-bottom: 1px #666 solid;
+    margin-top: -4px;
+    width: 100%; }
+    #container #navigation:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    * html #container #navigation {
+      height: 1px; }
+    #container #navigation ul {
+      list-style: none;
+      padding: 0px;
+      margin: 0px; }
+      #container #navigation ul li {
+        margin: 0px; }
+    #container #navigation ul.left {
+      float: left; }
+      #container #navigation ul.left li {
+        float: left;
+        border-right: 1px #999 solid; }
+    #container #navigation ul.right {
+      float: right; }
+      #container #navigation ul.right li {
+        float: right;
+        border-left: 1px #999 solid; }
+    #container #navigation li a {
+      background: #ddd;
+      height: 2em;
+      line-height: 2em;
+      float: left;
+      padding: 0px 14px;
+      display: block;
+      color: #000;
+      text-decoration: none;
+      text-align: center; }
+      #container #navigation li a:hover {
+        background: #bbb; }
+    #container #navigation li a.active {
+      background: #bbb;
+      font-weight: bold; }
+  #container #content {
+    padding: 20px; }
