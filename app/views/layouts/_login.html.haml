@@ -1,11 +1,14 @@
 - if current_user
 
-  .gravatar= gravatar_for_user current_user
-  .name=     user.name
-  
+  - form_for :session, :url => sessions_path, :html => { :method => 'delete' } do |form|
+
+    .gravatar= gravatar_for_user current_user
+    .name=     current_user.name
+    .signout=  form.submit 'Sign Out'
+
 - else
 
-  - form_for :session, :url => { :controller => 'sessions', :action => 'create' } do |form|
+  - form_for :session, :url => sessions_path do |form|
 
     = form.label          :email
     = form.text_field     :email, :size => 20

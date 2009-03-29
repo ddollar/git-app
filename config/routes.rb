@@ -1,9 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :sessions, :only => [ :create, :destroy ]
+  map.resource  :sessions, :only => [ :create, :destroy ]
 
   map.resources :repositories
   map.resources :pages
+  map.resource  :settings
   map.resources :users
 
   # default route

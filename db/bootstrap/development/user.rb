@@ -17,7 +17,7 @@ keys = [ :email ]
 data = [
   {
     :admin                 => true,
-    :email                 => 'ddollar@peervoice.com', 
+    :email                 => 'ddollar@gmail.com', 
     :name                  => 'David Dollar',
     :password              => 'test123', 
     :password_confirmation => 'test123',
