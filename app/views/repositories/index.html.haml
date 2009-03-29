@@ -1,0 +1,16 @@
+#repositories.grid
+
+  .header
+    %h3    Repositories
+    .new=  link_to 'Create New Repository', { :action => 'new' }
+
+  %table
+
+    %tr
+      %th Name
+      %th Last Commit
+      %th Commit Date
+      %th
+    
+    - 20.times do
+      = render :partial => 'repository'

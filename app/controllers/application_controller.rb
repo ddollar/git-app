@@ -13,13 +13,6 @@ class ApplicationController < ActionController::Base
 
   filter_parameter_logging :password
 
-  def current_user
-    Rails.env.development? ? User.first : session[:user]
-  end
-
-  helper_method :current_user
-  private :current_user
-
 ## helpers ###################################################################
 
   helper :all # include all helpers, all the time

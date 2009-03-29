@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   # default route
-  map.root :controller => 'home'
+  map.root :controller => 'repositories'
 
   # fallback routes, leave disabled
   # map.connect ':controller/:action/:id'

@@ -14,6 +14,15 @@ describe User do
   end
 
   describe 'with a regular user' do
+    describe 'while authenticating' do
+      it 'should authenticate correctly' do
+        User.authenticate(@user.email, @user.password).should == @user
+      end
+
+      it 'should not authenticate for invalid credentials' do
+        User.authenticate(@user.email, 'bad').should be_nil
+      end
+    end
   end
 
   describe 'with an admin user' do

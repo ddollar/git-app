@@ -1,6 +1,6 @@
 %ul.right
-  %li= link_to 'Administration', { :controller => 'users' }
+  = tab users_path, :users, :name => 'Administration'
 
 %ul.left
-  %li= link_to 'Repositories', { :controller => 'repositories' }, { :class => 'active' }
-  %li= link_to 'Pages',        { :controller => 'pages' }
+  = tab repositories_path, :repositories
+  = tab pages_path,        :pages

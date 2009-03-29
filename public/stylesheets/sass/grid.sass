@@ -1,0 +1,40 @@
+@import util.sass
+
+.grid
+
+  a
+    :color #0d3973
+    :font-size 0.9em
+    :font-weight bold
+
+  .header
+    +clearfix
+    :width 962px
+    :border 1px #999 solid
+      :bottom 1px #888 solid
+    :background #93c3ce
+    :padding 5px 8px
+    h3
+      :margin 0
+      :float left
+    .new
+      :float right
+      :margin-top 3px
+      :margin-right 3px
+      
+  table
+    :margin-top -5px
+    :width 980px
+    :border 1px #999 solid
+    :border-collapse collapse
+    tr.odd
+      :background #ddd
+    tr.even
+      :background #eee
+    th, td
+      :border 1px #999 solid
+      :padding  6px 8px
+        :bottom 4px
+    th
+      :background #bbb
+      :text-align left

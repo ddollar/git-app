@@ -11,10 +11,18 @@ describe ApplicationHelper do
 
   before :each do extend ApplicationHelper end
 
-  describe 'with #flash_messages' do
+  describe '#flash_messages' do
     it 'should render the flash partial' do
-      self.should_receive(:render).with('layouts/flash', :flash => flash)
+      should_receive(:render).with('layouts/flash', :flash => flash)
       flash_messages
+    end
+  end
+
+  describe '#current_user' do
+    it 'should return the currently logged in user' do
+      user = Factory(:user)
+      session[:user] = user
+      current_user.should == user
     end
   end
 
