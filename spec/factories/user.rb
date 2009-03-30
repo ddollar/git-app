@@ -13,9 +13,10 @@
 #  updated_at         :datetime
 
 Factory.define :user do |f|
+  f.admin                 false
   f.sequence(:email)      { |n| "user#{n}@example.org" }
-  f.ssh_key               'ssh_key'
   f.password              'password'
   f.password_confirmation 'password'
-  f.admin                 false
+  f.name                  'David Dollar'
+  f.ssh_key               'test-ssh-key'
 end

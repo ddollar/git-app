@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
   def create
-    session[:user] = User.first
+    params[:session] ||= {}
+    session[:user] = User.authenticate(params[:session][:email], params[:session][:password])
     redirect_to :back
   end
 
