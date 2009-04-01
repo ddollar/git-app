@@ -16,6 +16,10 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
 
+## scopes ####################################################################
+
+  default_scope :order => 'name'
+
 ## setup #####################################################################
 
   attr_accessor   :password                                          #:nodoc:#

@@ -1,0 +1,29 @@
+%table
+
+  %tr
+    %td.label  Name
+    %td.field= form.text_field :name
+    
+  %tr
+    %td.label  Email
+    %td.field= form.text_field :email
+    
+  %tr
+    %td.label  Password
+    %td.field= form.password_field :password
+  
+  %tr
+    %td.label  Confirm
+    %td.field= form.password_field :password_confirmation
+    
+  %tr
+    %td.label  SSH Public Key
+    %td.field= form.text_area :ssh_key, :rows => 5, :cols => 60
+
+  %tr
+    %td.label  Admin
+    %td.field= form.check_box :admin
+    
+  %tr.footer
+    %td
+    %td= form.submit controller.action_name == 'new' ? 'Create New User' : 'Save User'
