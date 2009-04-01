@@ -2,16 +2,6 @@ require 'digest/md5'
 
 module ApplicationHelper
 
-## authentication ############################################################
-
-  def current_user
-    session[:user]
-  end
-
-  def logged_in?
-    !current_user.nil?
-  end
-
 ## flash #####################################################################
 
   def flash_messages
