@@ -96,11 +96,11 @@ describe UsersController do
       lambda { get :edit, :id => 0 }.should raise_error(ActiveRecord::RecordNotFound)
     end
   end
-  
+
   describe '#update' do
     describe 'with valid parameters' do
-      before :each do 
-        @params = { :id => @user.id, :user => Factory.attributes_for(:user) } 
+      before :each do
+        @params = { :id => @user.id, :user => Factory.attributes_for(:user) }
       end
 
       it 'should update the user' do
@@ -143,6 +143,7 @@ describe UsersController do
         post :update, @params
         assigns(:user).should have(1).error_on(:name)
       end
-    end  end
+    end
+  end
 
 end
