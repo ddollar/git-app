@@ -18,5 +18,5 @@ Factory.define :user do |f|
   f.password              'password'
   f.password_confirmation 'password'
   f.name                  'David Dollar'
-  f.ssh_key               'test-ssh-key'
+  f.sequence(:ssh_key)    { |n| "ssh-key-#{n}" }
 end
