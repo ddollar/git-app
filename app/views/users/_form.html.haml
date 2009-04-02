@@ -1,27 +1,27 @@
 %table
 
   %tr
-    %td.label  Name
+    %td.label= form.label      :name
     %td.field= form.text_field :name
     
   %tr
-    %td.label  Email
+    %td.label= form.label      :email
     %td.field= form.text_field :email
     
   %tr
-    %td.label  Password
+    %td.label= form.label          :password
     %td.field= form.password_field :password
   
   %tr
-    %td.label  Confirm
+    %td.label= form.label          :password_confirmation, 'Confirm'
     %td.field= form.password_field :password_confirmation
     
   %tr
-    %td.label  SSH Public Key
+    %td.label= form.label     :ssh_key, 'SSH Public Key'
     %td.field= form.text_area :ssh_key, :rows => 5, :cols => 60
 
   %tr
-    %td.label  Admin
+    %td.label= form.label     :admin, 'Administrator'
     %td.field= form.check_box :admin
     
   %tr.footer
