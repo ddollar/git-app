@@ -16,8 +16,9 @@
       #navigation
         = render :partial => 'layouts/navigation'
 
-      #flash
-        = flash_messages
+      - if flash.any?
+        #flash
+          = flash_messages
 
       #content
         = yield
