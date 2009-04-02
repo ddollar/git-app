@@ -23,7 +23,9 @@
   %tr
     %td.label= form.label     :admin, 'Administrator'
     %td.field= form.check_box :admin
-    
+
   %tr.footer
     %td
-    %td= form.submit controller.action_name == 'new' ? 'Create New User' : 'Save User'
+      = link_to 'Cancel', users_path
+    %td
+      = form.submit controller.action_name == 'new' ? 'Create New User' : 'Save User'
