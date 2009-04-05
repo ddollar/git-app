@@ -1,6 +1,6 @@
 %tr{ :class => cycle('odd', 'even') }
 
-  %td test-repository
-  %td Updated repository to not include sensitive information
-  %td= Time.now.strftime("%B %d, %Y %H:%M")
-  %td= link_to 'Edit'
+  %td= repository.name
+  %td= repository.last_commit_message
+  %td= repository.last_commit_date
+  %td= link_to 'Edit', edit_repository_path(repository)

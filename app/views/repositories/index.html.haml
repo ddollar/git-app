@@ -11,6 +11,11 @@
       %th Last Commit
       %th Commit Date
       %th
-    
-    - 20.times do
-      = render :partial => 'repository'
+
+      - if @repositories.empty?
+
+        %tr
+          %td{ :colspan => 4 }
+            No repositories found.
+
+      = render @repositories

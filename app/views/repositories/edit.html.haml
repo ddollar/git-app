@@ -1,0 +1,9 @@
+#repositories.grid
+
+  - form_for @repository do |form|
+    = form.error_messages
+
+    .header
+      %h3    Edit Repository
+
+    = render 'form', :form => form

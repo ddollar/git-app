@@ -14,6 +14,13 @@ class Repository < ActiveRecord::Base
 
   validates_presence_of   :name
   validates_uniqueness_of :name, :case_sensitive => false
-  validates_presence_of   :public
+
+  def last_commit_message
+    'Funky Commit'
+  end
+
+  def last_commit_date
+    Time.now.strftime("%B %d, %Y %H:%M")
+  end
 
 end

@@ -1,0 +1,15 @@
+%table
+
+  %tr
+    %td.label= form.label      :name
+    %td.field= form.text_field :name
+
+  %tr
+    %td.label= form.label     :public
+    %td.field= form.check_box :public
+
+  %tr.footer
+    %td
+      = link_to 'Cancel', repositories_path
+    %td
+      = form.submit controller.action_name == 'new' ? 'Create New Repository' : 'Save Repository'
