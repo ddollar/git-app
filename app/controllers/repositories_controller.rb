@@ -12,7 +12,7 @@ class RepositoriesController < ApplicationController
 
   def create
     @repository = Repository.new(params[:repository])
-    if @repostiory.save
+    if @repository.save
       flash[:success] = 'Repository created.'
       redirect_to repositories_path
     else

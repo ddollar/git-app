@@ -8,5 +8,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 
-class Repositories < ActiveRecord::Base
+Factory.define :repository do |f|
+  f.sequence(:name) { |n| "Repository #{n}" }
+  f.public          true
 end
