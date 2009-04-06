@@ -5,6 +5,9 @@ Rails::Initializer.run do |config|
 
   config.time_zone = 'UTC'
 
+  # git
+  config.gem 'mojombo-grit', :version => '>= 1.1.1', :lib => 'grit'
+
   # templating
   config.gem 'haml', :version => '>= 2.0.9'
 
