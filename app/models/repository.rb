@@ -21,20 +21,34 @@ class Repository < ActiveRecord::Base
 ## display shortcuts #########################################################
 
   def last_commit_message
-    # TODO: actually implement
-    'Funky Commit'
+    return 'Uninitialized' unless initialized?
+    last_commit.message
   end
 
   def last_commit_date
-    # TODO: actually implement
-    Time.now.strftime("%B %d, %Y %H:%M")
+    return 'N/A' unless initialized?
+    last_commit.committed_date.strftime('%B %d, %Y %H:%M')
   end
 
-## physical implementation ###################################################
+private ######################################################################
 
   def full_path
     # TODO: make this work with a configured repository root
-    File.join(RAILS_ROOT, 'repositories', name)
+    File.join(RAILS_ROOT, 'repositories', path)
+  end
+
+  def initialized?
+    repo && repo.commits.length.nonzero?
+  end
+
+  def last_commit
+    return nil unless initialized?
+    repo.commits.first
+  end
+
+  def repo
+    return nil unless File.exists?(full_path)
+    Grit::Repo.new(full_path)
   end
 
 end
