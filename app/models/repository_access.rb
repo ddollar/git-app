@@ -9,5 +9,5 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 
-class RepositoryAccesses < ActiveRecord::Base
+class RepositoryAccess < ActiveRecord::Base
 end
