@@ -1,6 +1,6 @@
 %tr{ :class => cycle('odd', 'even') }
 
-  %td= repository.name
+  %td= link_to repository.name, repository_path(repository)
   %td= repository.path
   %td= repository.last_commit_message
   %td= repository.last_commit_date
