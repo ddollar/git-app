@@ -1,22 +1,20 @@
 # == Schema Info
 #
-# Table name: users
+# Table name: repositories
 #
-#  id                 :integer         not null, primary key
-#  admin              :boolean         not null
-#  email              :string(255)     not null
-#  encrypted_password :string(255)     not null
-#  name               :string(255)     not null
-#  salt               :string(255)     not null
-#  ssh_key            :text            not null
-#  created_at         :datetime
-#  updated_at         :datetime
+#  id         :integer         not null, primary key
+#  name       :string(255)     not null
+#  path       :string(255)     not null
+#  public     :boolean         not null
+#  created_at :datetime
+#  updated_at :datetime
 
 keys = [ :name ]
 
 data = [
   {
-    :name   => "Public Repository 1",
+    :name   => 'Public Repository 1',
+    :path   => 'repo_1',
     :public => true
   }
 ]

@@ -5,6 +5,10 @@
     %td.field= form.text_field :name
 
   %tr
+    %td.label= form.label      :path
+    %td.field= form.text_field :path
+
+  %tr
     %td.label= form.label     :public
     %td.field= form.check_box :public
 
@@ -13,3 +17,12 @@
       = link_to 'Cancel', repositories_path
     %td
       = form.submit controller.action_name == 'new' ? 'Create New Repository' : 'Save Repository'
+
+:javascript
+
+  $('#repository_name').bind('blur', function(event) {
+    path_field = $('#repository_path');
+    if (path_field.val() == '') {
+      path_field.val(event.target.value.toLowerCase().replace(' ', '_'));
+    }
+  });

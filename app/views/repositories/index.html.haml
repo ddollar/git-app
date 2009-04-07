@@ -8,14 +8,15 @@
 
     %tr
       %th Name
+      %th Path
       %th Last Commit
       %th Commit Date
       %th
 
-      - if @repositories.empty?
+    - if @repositories.empty?
 
-        %tr
-          %td{ :colspan => 4 }
-            No repositories found.
+      %tr
+        %td{ :colspan => 4 }
+          No repositories found.
 
-      = render @repositories
+    = render @repositories

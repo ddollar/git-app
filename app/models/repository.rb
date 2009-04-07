@@ -4,6 +4,7 @@
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)     not null
+#  path       :string(255)     not null
 #  public     :boolean         not null
 #  created_at :datetime
 #  updated_at :datetime
@@ -14,6 +15,8 @@ class Repository < ActiveRecord::Base
 
   validates_presence_of   :name
   validates_uniqueness_of :name, :case_sensitive => false
+  validates_presence_of   :path
+  validates_uniqueness_of :path, :case_sensitive => false
 
 ## display shortcuts #########################################################
 
