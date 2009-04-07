@@ -23,3 +23,18 @@
 
       #content
         = yield
+
+:javascript
+
+  $(window).load(function() {
+    var fields = $('#content form:first').find(
+      'input:visible,select:visible,textarea:visible'
+    );
+    if (!fields) return;
+    var top = fields[0];
+    fields.each(function(field) {
+      if (field.offsetTop < top.offsetTop) top = field;
+    });
+    console.log(top);
+    top.focus();
+  });
