@@ -35,6 +35,6 @@
     fields.each(function(field) {
       if (field.offsetTop < top.offsetTop) top = field;
     });
-    console.log(top);
+    if (!top) return;
     top.focus();
   });
