@@ -15,11 +15,15 @@ class Repository < ActiveRecord::Base
   validates_presence_of   :name
   validates_uniqueness_of :name, :case_sensitive => false
 
+## display shortcuts #########################################################
+
   def last_commit_message
+    # TODO: actually implement
     'Funky Commit'
   end
 
   def last_commit_date
+    # TODO: actually implement
     Time.now.strftime("%B %d, %Y %H:%M")
   end
 
