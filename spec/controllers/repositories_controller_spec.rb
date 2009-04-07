@@ -76,12 +76,12 @@ describe RepositoriesController do
 
   describe '#edit' do
     it 'should fetch the repository object from the id' do
-      get :edit, :id => @repository.id
+      get :edit, :id => @repository.path
       assigns(:repository).should == @repository
     end
 
     it 'should render the :edit template successfully' do
-      get :edit, :id => @repository.id
+      get :edit, :id => @repository.path
       response.should be_success
       response.should render_template(:edit)
     end
@@ -98,12 +98,12 @@ describe RepositoriesController do
   describe '#update' do
     describe 'with valid parameters' do
       before :each do
-        @params = { :id => @repository.id, :repository => Factory.attributes_for(:repository) }
+        @params = { :id => @repository.path, :repository => Factory.attributes_for(:repository) }
       end
 
       it 'should update the repository' do
         post :update, @params
-        Repository.find(@params[:id]).name.should == @params[:repository][:name]
+        Repository.find(@repository.id).name.should == @params[:repository][:name]
       end
 
       it 'should redirect to the repository list' do
@@ -119,12 +119,12 @@ describe RepositoriesController do
 
     describe 'with invalid parameters' do
       before :each do
-        @params = { :id => @repository.id, :repository => Factory.attributes_for(:repository, :name => '') }
+        @params = { :id => @repository.path, :repository => Factory.attributes_for(:repository, :name => '') }
       end
 
       it 'should not update the repository' do
         post :update, @params
-        Repository.find(@params[:id]).name.should_not == @params[:repository][:name]
+        Repository.find(@repository.id).name.should_not == @params[:repository][:name]
       end
 
       it 'should render the edit action' do
