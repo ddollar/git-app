@@ -27,4 +27,11 @@ class Repository < ActiveRecord::Base
     Time.now.strftime("%B %d, %Y %H:%M")
   end
 
+## physical implementation ###################################################
+
+  def full_path
+    # TODO: make this work with a configured repository root
+    File.join(RAILS_ROOT, 'repositories', name)
+  end
+
 end
