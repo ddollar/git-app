@@ -2,12 +2,12 @@
 #
 # Table name: repositories
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)     not null
-#  path       :string(255)     not null
-#  public     :boolean         not null
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer         not null, primary key
+#  description :string(255)     not null
+#  name        :string(255)     not null
+#  public      :boolean         not null
+#  created_at  :datetime
+#  updated_at  :datetime
 
 class Repository < ActiveRecord::Base
 
@@ -15,8 +15,6 @@ class Repository < ActiveRecord::Base
 
   validates_presence_of   :name
   validates_uniqueness_of :name, :case_sensitive => false
-  validates_presence_of   :path
-  validates_uniqueness_of :path, :case_sensitive => false
 
 ## display shortcuts #########################################################
 
@@ -32,9 +30,9 @@ class Repository < ActiveRecord::Base
 
 private ######################################################################
 
-  def full_path
+  def path
     # TODO: make this work with a configured repository root
-    File.join(RAILS_ROOT, 'repositories', path)
+    File.join(RAILS_ROOT, 'repositories', name)
   end
 
   def initialized?
@@ -47,8 +45,8 @@ private ######################################################################
   end
 
   def repo
-    return nil unless File.exists?(full_path)
-    Grit::Repo.new(full_path)
+    return nil unless File.exists?(path)
+    Grit::Repo.new(path)
   end
 
 end
