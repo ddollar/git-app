@@ -6,6 +6,10 @@ class RepositoriesController < ApplicationController
     @repositories = Repository.all
   end
 
+  def show
+    @repository = Repository.find(params[:id])
+  end
+
   def new
     @repository = Repository.new
   end

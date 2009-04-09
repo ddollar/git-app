@@ -1,0 +1,19 @@
+.commit.latest
+  .gravatar= gravatar_for_user(@repository.last_commit_committer)
+  .message=  @repository.last_commit_message
+  .date=     @repository.last_commit_date
+  
+#tree.grid
+
+  .header
+    %h3 Tree
+    
+  %table
+
+    %tr
+      %th Name
+      %th Commit
+      %th Date
+    
+    - @repository.nodes.each do |node|
+      = render 'node', :node => node
