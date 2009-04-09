@@ -18,14 +18,25 @@ class Repository < ActiveRecord::Base
 
 ## display shortcuts #########################################################
 
-  def last_commit_message
-    return 'Uninitialized' unless initialized?
-    last_commit.message
+  def last_commit_committer
+    return 'N/A' unless initialized?
+    last_commit.committer
   end
 
   def last_commit_date
     return 'N/A' unless initialized?
     last_commit.committed_date.strftime('%B %d, %Y %H:%M')
+  end
+
+  def last_commit_message
+    return 'Uninitialized' unless initialized?
+    last_commit.message
+  end
+
+  def nodes
+    repo.commits.first.tree.contents.map do |node|
+      Node.new(repo, 'master', node.name)
+    end
   end
 
 private ######################################################################
@@ -40,8 +51,8 @@ private ######################################################################
   end
 
   def last_commit
-    return nil unless initialized?
-    repo.commits.first
+   return nil unless initialized?
+   repo.commits.first
   end
 
   def repo
