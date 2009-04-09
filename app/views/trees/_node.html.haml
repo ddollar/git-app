@@ -1,5 +1,5 @@
 %tr{ :class => cycle('odd', 'even') }
 
-  %td= node.name
+  %td= node_link(node)
   %td= node.commit.message
   %td= node.commit.committed_date.strftime('%B %d, %Y %H:%M')

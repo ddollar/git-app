@@ -7,7 +7,7 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @repository = Repository.find(params[:id])
+    redirect_to repository_trees_path(Repository.find(params[:id]))
   end
 
   def new

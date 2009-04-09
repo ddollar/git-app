@@ -16,6 +16,11 @@ data = [
     :description => 'Public Repository 1',
     :name        => 'repo_1',
     :public      => true
+  },
+  {
+    :description => 'Railroad',
+    :name        => 'railroad',
+    :public      => true
   }
 ]
 

@@ -1,0 +1,27 @@
+#tree
+
+  .control
+    .title= @repository.name
+    %ul.links
+      = tab repository_commits_path(@repository), :repositories => :commits
+      = tab repository_trees_path(@repository),   :repositories => :trees
+
+  .commit.latest
+    .gravatar= gravatar_for_user(@repository.last_commit_committer)
+    .message=  @repository.last_commit_message
+    .date=     @repository.last_commit_date
+
+  .grid
+
+    .header
+      %h3 Tree
+
+    %table
+
+      %tr
+        %th Name
+        %th Commit
+        %th Date
+
+      - @tree.nodes.each do |node|
+        = render 'node', :node => node

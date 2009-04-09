@@ -1,0 +1,45 @@
+@import util.sass
+
+#tree
+
+  .control
+    +clearfix
+    :background #b3e3ee
+    :border 1px #53838e solid
+    :margin-bottom 10px
+    .title
+      :float left
+      :margin 6px 10px
+        :bottom 4px
+      :font-weight bold
+      :font-size 1.1em
+    ul.links
+      :float right
+      :list-style-type none
+      :margin 0
+      li
+        :float left
+        :border-left 1px #53838e solid
+        a
+          :background #93c3ce
+          :height 30px
+          :line-height 30px
+          :float left
+          :padding 0px 16px
+            :top 2px
+          :display block
+          :color #000
+          :text-decoration none
+          :text-align center
+          :font-size 0.85em
+          :font-weight bold
+          &:hover
+            :background #73a3ae
+      li.active
+        a
+          :background #73a3ae
+
+  .grid
+    :margin-top 10px
+    table
+      :font-size 0.8em

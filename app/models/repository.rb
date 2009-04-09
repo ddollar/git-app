@@ -33,10 +33,12 @@ class Repository < ActiveRecord::Base
     last_commit.message
   end
 
-  def nodes
-    repo.commits.first.tree.contents.map do |node|
-      Node.new(repo, 'master', node.name)
-    end
+  def git
+    @git ||= self.class.repo_for(path)
+  end
+  
+  def tree(id)
+    Tree.new(self, id)
   end
 
 private ######################################################################
@@ -47,17 +49,18 @@ private ######################################################################
   end
 
   def initialized?
-    repo && repo.commits.length.nonzero?
+    git && git.commits.length.nonzero?
   end
 
   def last_commit
    return nil unless initialized?
-   repo.commits.first
+   git.commits.first
   end
 
-  def repo
+  def self.repo_for(path)
     return nil unless File.exists?(path)
-    Grit::Repo.new(path)
+    @repos ||= {}
+    @repos[path] ||= Grit::Repo.new(path)
   end
 
 end
