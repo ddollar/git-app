@@ -1,0 +1,18 @@
+#blob.node
+
+  .control
+    .title= @repository.name
+    %ul.links
+      = tab repository_commits_path(@repository),              :repositories => :commits
+      = tab repository_commit_tree_path(@repository, @commit), :repositories => :trees
+
+  .commit.latest
+    .gravatar= gravatar_for_user(@repository.last_commit.committer)
+    .message=  @repository.last_commit.message
+    .date=     @repository.last_commit.date
+
+  .grid
+
+    .header
+      %h3= node_breadcrumbs(@node)
+

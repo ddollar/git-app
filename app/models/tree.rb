@@ -1,49 +1,24 @@
-class Tree
-
-  attr_reader :repository, :id
-
-  def initialize(repository, id)
-    @repository = repository
-    id_parts    = id.split('/')
-    @id         = id_parts.shift
-    @path       = id_parts.join('/')
-  end
+class Tree < Node
 
   def nodes
     @nodes ||= tree.contents.map do |node|
-      Node.new(repository, self, node.name)
+      Node.new(commit, build_path(node))
+    end.sort_by do |node|
+      node.directory? ? -1 : 1
     end
-  end
-
-  def node(path)
-    @nodes_by_path       ||= {}
-    @nodes_by_path[path] ||= tree / path
-  end
-
-  def commit(path)
-    path = full_path(path)
-    @commits       ||= {}
-    @commits[path] ||= repository.git.log(id, path).first
   end
 
 private ######################################################################
 
-  def tree
-    @tree ||= begin
-      tree = repository.git.commits(id).first.tree
-      @path.split('/').each do |part|
-        tree = tree / part
-      end
-      Rails.logger.info tree.inspect
-      tree
-    end
+  def build_path(node)
+    path.blank? ? node.name : "#{path}/#{node.name}"
   end
 
-  def full_path(path)
-    if @base_path.blank?
-      path
-    else
-      "#{@base_path}/#{path}"
+  def tree
+    @tree ||= begin
+      tree = commit.repository.git.commits(commit.id).first.tree
+      tree = tree / path unless path.blank?
+      tree
     end
   end
 

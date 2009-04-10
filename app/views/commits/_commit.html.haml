@@ -1,0 +1,4 @@
+.commit
+  .gravatar= gravatar_for_user(commit.committer)
+  .message=  link_to commit.message, repository_commit_path(commit.repository, commit)
+  .date=     commit.date

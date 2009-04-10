@@ -16,29 +16,17 @@ class Repository < ActiveRecord::Base
   validates_presence_of   :name
   validates_uniqueness_of :name, :case_sensitive => false
 
-## display shortcuts #########################################################
-
-  def last_commit_committer
-    return 'N/A' unless initialized?
-    last_commit.committer
-  end
-
-  def last_commit_date
-    return 'N/A' unless initialized?
-    last_commit.committed_date.strftime('%B %d, %Y %H:%M')
-  end
-
-  def last_commit_message
-    return 'Uninitialized' unless initialized?
-    last_commit.message
-  end
-
   def git
     @git ||= self.class.repo_for(path)
   end
   
-  def tree(id)
-    Tree.new(self, id)
+  def commits(id=nil)
+    id ? Commit.new(self, id) : git.commits.map { |commit| Commit.new(self, commit.id) }
+  end
+  
+  def last_commit
+   return nil unless initialized?
+   commits.first
   end
 
 private ######################################################################
@@ -50,11 +38,6 @@ private ######################################################################
 
   def initialized?
     git && git.commits.length.nonzero?
-  end
-
-  def last_commit
-   return nil unless initialized?
-   git.commits.first
   end
 
   def self.repo_for(path)

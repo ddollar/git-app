@@ -2,20 +2,32 @@ class TreesController < ApplicationController
 
   tab :repositories => :trees
 
-  before_filter :find_repository
+  before_filter :parse_parameters
 
   def index
-    redirect_to repository_tree_path(@repository, 'master')
+    @node = @commit.nodes
+    render_partial_for_node
   end
 
   def show
-    @tree = @repository.tree(params[:id])
+    @node = @commit.nodes(params[:id])
+    render_partial_for_node
   end
 
 private ######################################################################
 
-  def find_repository
+  def parse_parameters
     @repository = Repository.find(params[:repository_id])
+    @commit     = @repository.commits(params[:commit_id])
+  end
+
+  def render_partial_for_node
+    Rails.logger.info @node.inspect
+    case @node
+      when Tree then render :tree
+      when Blob then render :blob
+      else raise 'Invalid node'
+    end
   end
 
 end

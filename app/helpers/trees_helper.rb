@@ -1,27 +1,20 @@
 module TreesHelper
 
-  def node_link(node)
-    if node.directory?
-      link_to node.name, node_url(node)
-    else
-      link_to node.name, node_url(node)
+  def node_breadcrumbs(node)
+    base = []
+
+    path_links = [ link_to(node.commit.repository.name, repository_commit_trees_path(node.commit.repository, node.commit)) ]
+
+    path_links += (node.path || '').split('/').map do |part|
+      base << part
+      link_to part, repository_commit_tree_path(node.commit.repository, node.commit, base.join('/'))
     end
+
+    path_links.join(' / ')
+  end
+
+  def node_path(node)
+    repository_commit_tree_path(node.commit.repository, node.commit, node.path).gsub('%2F', '/')
   end
   
-  def tree_id_for(node)
-    if node.directory?
-      [ node.tree.id, node.path ].join('/')
-    else
-      node.id
-    end
-  end
-
-  def node_url(node)
-    if node.directory?
-      repository_tree_path(node.repository, tree_id_for(node)).gsub('%2F', '/')
-    else
-      repository_blob_path(node.repository, tree_id_for(node))
-    end
-  end
-
 end
