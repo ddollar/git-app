@@ -4,7 +4,7 @@ class Tree < Node
     @nodes ||= tree.contents.map do |node|
       Node.new(commit, build_path(node))
     end.sort_by do |node|
-      node.directory? ? -1 : 1
+      [ (node.directory? ? -1 : 1), node.name ]
     end
   end
 
