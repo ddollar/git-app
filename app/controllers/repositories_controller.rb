@@ -8,7 +8,7 @@ class RepositoriesController < ApplicationController
 
   def show
     repository = Repository.find(params[:id])
-    redirect_to repository_commit_trees_path(repository, 'master')
+    redirect_to repository_commit_files_path(repository, 'master')
   end
 
   def new
