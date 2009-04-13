@@ -14,7 +14,7 @@ class CommitsController < ApplicationController
 private ######################################################################
 
   def parse_parameters
-    @repository = Repository.find(params[:repository_id])
+    @repository = Repository.find_by_name!(params[:repository_id])
   end
   
 

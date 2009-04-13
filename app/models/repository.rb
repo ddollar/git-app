@@ -11,6 +11,10 @@
 
 class Repository < ActiveRecord::Base
 
+  def to_param
+    name
+  end
+
 ## validations ###############################################################
 
   validates_presence_of   :name
