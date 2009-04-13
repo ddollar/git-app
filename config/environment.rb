@@ -8,6 +8,9 @@ Rails::Initializer.run do |config|
   # git
   config.gem 'mojombo-grit', :version => '>= 1.1.1', :lib => 'grit'
 
+  # syntax highlighting
+  config.gem 'ultraviolet', :version => '>= 0.10.2', :lib => 'uv'
+
   # templating
   config.gem 'haml', :version => '>= 2.0.9'
 
