@@ -1,5 +1,5 @@
 %tr{ :class => cycle('odd', 'even') }
 
-  %td= link_to node.name, node_path(node)
+  %td= link_to node_name(node), node_path(node)
   %td= link_to node.message, repository_commit_path(node.commit.repository, node.raw_commit.id)
   %td= node.date

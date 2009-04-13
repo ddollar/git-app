@@ -1,6 +1,6 @@
-class TreesController < ApplicationController
+class FilesController < ApplicationController
 
-  tab :repositories => :trees
+  tab :repositories => :files
 
   before_filter :parse_parameters
 
