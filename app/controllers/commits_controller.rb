@@ -1,5 +1,7 @@
 class CommitsController < ApplicationController
 
+  tab :repositories => :commits
+
   before_filter :parse_parameters
 
   def index
