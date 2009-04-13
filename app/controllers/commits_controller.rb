@@ -9,8 +9,8 @@ class CommitsController < ApplicationController
   end
 
   def show
-    repository = Repository.find(params[:repository_id])
-    redirect_to repository_commit_trees_path(repository, params[:id])
+    repository = Repository.find_by_name!(params[:repository_id])
+    redirect_to repository_commit_files_path(repository, params[:id])
   end
 
 private ######################################################################

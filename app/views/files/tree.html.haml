@@ -3,8 +3,8 @@
   .control
     .title= @repository.name
     %ul.links
-      = tab repository_commits_path(@repository),              :repositories => :commits
-      = tab repository_commit_file_path(@repository, @commit), :repositories => :files
+      = tab repository_commits_path(@repository),               :repositories => :commits
+      = tab repository_commit_files_path(@repository, @commit), :repositories => :files
 
   .commit
     .gravatar= gravatar_for_user(@commit.committer)
