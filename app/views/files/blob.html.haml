@@ -11,8 +11,21 @@
     .message=  @repository.last_commit.message
     .date=     @repository.last_commit.date
 
-  .grid
+  .blob
 
     .header
       %h3= node_breadcrumbs(@node)
 
+    #code.contents
+      :preserve
+        #{blob_syntax_highlighted_contents(@node)}
+        
+:javascript
+
+  function adapt_to_browser_height() {
+    code_block = $('#code pre');
+    code_block.css('max-height', (window.innerHeight - code_block[0].offsetTop - 30));
+  }
+
+  $(window).bind('load',   adapt_to_browser_height);
+  $(window).bind('resize', adapt_to_browser_height);
