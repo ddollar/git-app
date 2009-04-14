@@ -15,11 +15,7 @@ private ######################################################################
   end
 
   def tree
-    @tree ||= begin
-      tree = commit.repository.git.commits(commit.id).first.tree
-      tree = tree / path unless path.blank?
-      tree
-    end
+    node
   end
 
 end

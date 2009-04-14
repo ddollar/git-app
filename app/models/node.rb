@@ -50,4 +50,12 @@ class Node
     commit.repository.git.log(commit.id, path).first
   end
 
+  def node
+    @blob ||= begin
+      blob = commit.repository.git.commits(commit.id).first.tree
+      blob = blob / path unless path.blank?
+      blob
+    end
+  end
+
 end
