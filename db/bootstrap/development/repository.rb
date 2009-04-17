@@ -21,6 +21,11 @@ data = [
     :description => 'Railroad',
     :name        => 'railroad',
     :public      => true
+  },
+  {
+    :description => 'Testbed',
+    :name        => 'testbed1',
+    :public      => true
   }
 ]
 
