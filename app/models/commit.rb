@@ -27,6 +27,10 @@ class Commit
     commit.committed_date.strftime('%B %d, %Y %H:%M')
   end
 
+  def diffs
+    commit.show
+  end
+
 private ######################################################################
 
   def commit

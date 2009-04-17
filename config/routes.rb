@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :repositories do |repository|
     repository.resources :commits do |commits|
+      commits.resource  :diff
       commits.resources :files, :requirements => { :id => /.*/ }
     end
   end
