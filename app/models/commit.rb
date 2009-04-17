@@ -14,7 +14,7 @@ class Commit
   def to_param
     id
   end
-  
+
   def committer
     commit.committer
   end
