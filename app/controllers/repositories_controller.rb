@@ -26,11 +26,11 @@ class RepositoriesController < ApplicationController
   end
 
   def edit
-    @repository = Repository.find(params[:id])
+    @repository = Repository.find_by_name!(params[:id])
   end
 
   def update
-    @repository = Repository.find(params[:id])
+    @repository = Repository.find_by_name!(params[:id])
     if @repository.update_attributes(params[:repository])
       flash[:success] = 'Repository updated.'
       redirect_to repositories_path
