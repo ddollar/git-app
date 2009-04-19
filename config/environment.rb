@@ -3,18 +3,15 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 
+## settings ##################################################################
+
   config.time_zone = 'UTC'
 
-  # git
-  config.gem 'mojombo-grit', :version => '>= 1.1.1', :lib => 'grit'
+## gems ######################################################################
 
-  # syntax highlighting
-  config.gem 'ultraviolet', :version => '>= 0.10.2', :lib => 'uv'
-
-  # templating
-  config.gem 'haml', :version => '>= 2.0.9'
-
-  # testing
+  config.gem 'mojombo-grit',            :version => '>= 1.1.1',  :lib => 'grit'
+  config.gem 'ultraviolet',             :version => '>= 0.10.2', :lib => 'uv'
+  config.gem 'haml',                    :version => '>= 2.0.9'
   config.gem 'thoughtbot-shoulda',      :version => '>= 2.10.1', :lib => 'shoulda'
   config.gem 'thoughtbot-factory_girl', :version => '>= 1.2.0',  :lib => 'factory_girl'
   config.gem 'webrat',                  :version => '>= 0.4.0'
