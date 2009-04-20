@@ -1,8 +1,8 @@
-class Tree < Node
+class Git::Tree < Git::Node
 
   def nodes
     @nodes ||= tree.contents.map do |node|
-      Node.new(commit, build_path(node))
+      Git::Node.new(commit, build_path(node))
     end.sort_by do |node|
       [ (node.directory? ? -1 : 1), node.name ]
     end

@@ -1,4 +1,4 @@
-class Commit
+class Git::Commit
 
   attr_reader :repository, :id
 
@@ -27,14 +27,15 @@ class Commit
     commit.committed_date.strftime('%B %d, %Y %H:%M')
   end
 
-  def diffs
-    commit.show
+  def diffs(type=nil)
+    @diffs ||= commit.show.map { |diff| Git::Diff.new(diff) }
+    type ? @diffs.select { |d| d.send("#{type}?") } : @diffs
   end
 
 private ######################################################################
 
   def commit
-    @repository.git.commits(@id).first
+    @commit ||= @repository.git.commits(@id).first
   end
 
 end

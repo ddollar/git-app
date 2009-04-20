@@ -4,4 +4,4 @@
     = tab repository_commits_path(@repository),               :repositories => :commits
     = tab repository_commit_file_path(@repository, 'master'), :repositories => :files
 
-= render @commits
+= render :partial => 'commit', :collection => @commits

@@ -25,7 +25,7 @@ class Repository < ActiveRecord::Base
   end
   
   def commits(id=nil)
-    id ? Commit.new(self, id) : git.commits.map { |commit| Commit.new(self, commit.id) }
+    id ? Git::Commit.new(self, id) : git.commits.map { |commit| Git::Commit.new(self, commit.id) }
   end
   
   def last_commit

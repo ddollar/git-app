@@ -1,4 +1,4 @@
-class Blob < Node
+class Git::Blob < Git::Node
 
   def contents
     blob.data

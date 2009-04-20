@@ -24,8 +24,8 @@ private ######################################################################
   def render_partial_for_node
     Rails.logger.info @node.inspect
     case @node
-      when Tree then render :tree
-      when Blob then render :blob
+      when Git::Tree then render :tree
+      when Git::Blob then render :blob
       else raise 'Invalid node'
     end
   end

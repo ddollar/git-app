@@ -1,16 +1,16 @@
-class Node
+class Git::Node
 
   attr_reader :commit, :path
 
   def self.new(commit, path)
-    if self == Node then
+    if self == Git::Node then
       raw_commit = commit.send(:commit)
       raw_commit = raw_commit.first if raw_commit.is_a?(Array)
       node = raw_commit.tree
       node = node / path unless path.blank?
       case node
-        when Grit::Tree then Tree.new(commit, path)
-        when Grit::Blob then Blob.new(commit, path)
+        when Grit::Tree then Git::Tree.new(commit, path)
+        when Grit::Blob then Git::Blob.new(commit, path)
       end
     else
       super
@@ -23,11 +23,11 @@ class Node
   end
 
   def directory?
-    self.is_a? Tree
+    self.is_a? Git::Tree
   end
 
   def file?
-    self.is_a? Blob
+    self.is_a? Git::Blob
   end
 
   def name
