@@ -1,8 +1,8 @@
 .diff
 
   .header
-    %h3 Header
+    %h3= diff.path
 
-  #code.contents
+  #code.contents.syntax
     :preserve
       #{syntax_highlighted_diff(diff)}

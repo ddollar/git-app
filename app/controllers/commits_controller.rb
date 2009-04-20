@@ -10,7 +10,7 @@ class CommitsController < ApplicationController
 
   def show
     repository = Repository.find_by_name!(params[:repository_id])
-    redirect_to repository_commit_files_path(repository, params[:id])
+    redirect_to repository_commit_diff_path(repository, params[:id])
   end
 
 private ######################################################################

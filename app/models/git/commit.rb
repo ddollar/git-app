@@ -28,14 +28,19 @@ class Git::Commit
   end
 
   def diffs(type=nil)
-    @diffs ||= commit.show.map { |diff| Git::Diff.new(diff) }
-    type ? @diffs.select { |d| d.send("#{type}?") } : @diffs
+    return diffs_by_type(type) if type
+    [ :added, :deleted, :modified ].map { |type| diffs_by_type(type) }.flatten
   end
 
 private ######################################################################
 
   def commit
     @commit ||= @repository.git.commits(@id).first
+  end
+  
+  def diffs_by_type(type)
+    @diffs ||= commit.show.map { |diff| Git::Diff.new(diff) }
+    @diffs.select { |d| d.send("#{type}?") }
   end
 
 end
