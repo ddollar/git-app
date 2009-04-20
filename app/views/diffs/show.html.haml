@@ -1,3 +1,9 @@
+.control
+  .title= @repository.name
+  %ul.links
+    = tab repository_commits_path(@repository),                 :repositories => :commits
+    = tab repository_commit_file_path(@repository, @commit.id), :repositories => :files
+
 .files
   .added=    render :partial => 'file', :collection => @commit.diffs(:added)
   .deleted=  render :partial => 'file', :collection => @commit.diffs(:deleted)
