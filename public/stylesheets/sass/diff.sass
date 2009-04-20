@@ -4,21 +4,32 @@
   :font-weight bold
   :padding 6px
   :margin-bottom 4px
+  a
+    :text-decoration none
 
 .added
   div
     :border 1px #070 solid
     :background #cfc
+    a
+      :color #070
 
 .deleted
   div
     :border 1px #c00 solid
     :background #fcc
+    a
+      :color #c00
 
 .modified
   div
     :border 1px #666 solid
     :background #ccc
+    a
+      :color #666
+
+.commit
+  :margin-bottom 10px
 
 .diff
   :margin-top 10px
@@ -38,3 +49,5 @@
     h3
       :margin 0
       :float left
+    a
+      :color #000
