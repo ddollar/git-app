@@ -1,7 +1,8 @@
 .diff
 
   .header
-    %h3= diff.path
+    %h3
+      %a{ :name => md5(diff.path) }= diff.path
 
   #code.contents.syntax
     :preserve
