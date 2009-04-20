@@ -1,10 +1,8 @@
 module FilesHelper
 
   def blob_syntax_highlighted_contents(blob)
-    Uv.default_syntax = 'plain_text'
-    Uv.init_syntaxes
-    syntax = Uv.syntax_for_file blob.path
-    Uv.parse blob.contents, 'xhtml', syntax, true, 'slush_poppies'
+    Albino.bin = '/usr/local/bin/pygmentize'
+    Albino.colorize(blob.contents, Albino.lexer_from_filename(blob.path))
   end
 
   def node_breadcrumbs(node)

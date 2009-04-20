@@ -1,13 +1,5 @@
-If you are on a Mac and you are having problems installing the ultraviolet gem
-required by this application, do the following:
+I gave up on Ruby-based syntax highlighting. Please install Pygments.
 
-  * Go to http://www.geocities.jp/kosako3/oniguruma/ and download the latest
-    tarball for oniguruma
-  * Expand the archive
-  * ./configure --prefix=/usr/local
-  * make && sudo make install
-
-Installation of the oniguruma gem (and thus ultraviolet that depends on it) should now succeed. Yay. I apologize for the craptasticness of this process,
-but the alternative was to have you install Python.
+  easy_install Pygments
 
 - David Dollar
