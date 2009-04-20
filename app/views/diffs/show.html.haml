@@ -4,6 +4,11 @@
     = tab repository_commits_path(@repository),                 :repositories => :commits
     = tab repository_commit_file_path(@repository, @commit.id), :repositories => :files
 
+.commit
+  .gravatar= gravatar_for_user(@commit.committer)
+  .message=  @commit.message
+  .date=     @commit.date
+
 .files
   .added=    render :partial => 'file', :collection => @commit.diffs(:added)
   .deleted=  render :partial => 'file', :collection => @commit.diffs(:deleted)
