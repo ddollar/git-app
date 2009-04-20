@@ -1,2 +1,7 @@
-%pre
-  = @diffs.inspect
+.files
+  .added=    render :partial => 'file', :collection => @commit.diffs(:added)
+  .deleted=  render :partial => 'file', :collection => @commit.diffs(:deleted)
+  .modified= render :partial => 'file', :collection => @commit.diffs(:modified)
+
+.diffs
+  = render :partial => 'diff', :collection => @diffs

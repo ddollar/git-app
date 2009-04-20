@@ -24,7 +24,7 @@ data = [
   },
   {
     :description => 'Testbed',
-    :name        => 'testbed1',
+    :name        => 'testbed',
     :public      => true
   }
 ]
