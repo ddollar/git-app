@@ -13,20 +13,10 @@ keys = [ :name ]
 
 data = [
   {
-    :description => 'Public Repository 1',
-    :name        => 'repo_1',
+    :description => 'GitApp',
+    :name        => 'git-app',
     :public      => true
   },
-  {
-    :description => 'Railroad',
-    :name        => 'railroad',
-    :public      => true
-  },
-  {
-    :description => 'Testbed',
-    :name        => 'testbed',
-    :public      => true
-  }
 ]
 
 data.each do |record|
